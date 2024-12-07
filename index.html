@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MY FIRST WEBPAGE</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: black; /* Space background */
+            position: relative;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+            overflow: hidden;
+            flex-direction: column;
+            color: #fff;
+        }
+
+        /* Planets (using absolute positioning for random placement) */
+        .planet {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.7;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease, z-index 0s; /* Smooth transition */
+            z-index: 0; /* Set default z-index */
+        }
+
+        /* Different planet sizes and colors */
+        .planet1 {
+            width: 80px;
+            height: 80px;
+            background-color: #f39c12; /* Orange planet */
+            animation: movePlanet1 10s infinite linear;
+        }
+
+        .planet2 {
+            width: 100px;
+            height: 100px;
+            background-color: #2980b9; /* Blue planet */
+            animation: movePlanet2 12s infinite linear;
+        }
+
+        .planet3 {
+            width: 60px;
+            height: 60px;
+            background-color: #8e44ad; /* Purple planet */
+            animation: movePlanet3 15s infinite linear;
+        }
+
+        .planet4 {
+            width: 120px;
+            height: 120px;
+            background-color: #e74c3c; /* Red planet */
+            animation: movePlanet4 18s infinite linear;
+        }
+
+        .planet5 {
+            width: 90px;
+            height: 90px;
+            background-color: #27ae60; /* Green planet */
+            animation: movePlanet5 14s infinite linear;
+        }
+
+        /* Hover Effects for Planets */
+        .planet:hover {
+            transform: scale(1.2); /* Enlarge the planet on hover */
+            box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.8); /* Glow effect */
+            opacity: 1; /* Increase opacity for a more prominent effect */
+            z-index: 10; /* Bring the planet to the front on hover */
+        }
+
+        /* Planet movement keyframes */
+        @keyframes movePlanet1 {
+            0% { top: 20%; left: 10%; }
+            100% { top: 80%; left: 90%; }
+        }
+
+        @keyframes movePlanet2 {
+            0% { top: 50%; left: 60%; }
+            100% { top: 20%; left: 30%; }
+        }
+
+        @keyframes movePlanet3 {
+            0% { top: 10%; left: 75%; }
+            100% { top: 50%; left: 30%; }
+        }
+
+        @keyframes movePlanet4 {
+            0% { top: 70%; left: 20%; }
+            100% { top: 30%; left: 70%; }
+        }
+
+        @keyframes movePlanet5 {
+            0% { top: 30%; left: 85%; }
+            100% { top: 70%; left: 40%; }
+        }
+
+        /* Header */
+        h1 {
+            font-size: 2.5rem;
+            color: #FFFAF0;
+            margin-bottom: 20px;
+            animation: fadeIn 2s ease-in-out, bounce 1s infinite;
+        }
+
+        /* Image */
+        img {
+            width: 250px;
+            border-radius: 25px;
+            margin: 15px;
+            animation: fadeIn 3s ease-in-out, rotateIn 2s ease-out;
+            transition: transform 0.45s ease, box-shadow 0.50s ease, filter 0.5s ease;
+            filter: blur(5px); /* Initial blurred effect */
+        }
+
+        img:hover {
+            transform: scale(1.1);
+            box-shadow: 0px 0px 25px rgba(255, 99, 71, 0.6);
+            filter: blur(0px);
+        }
+
+        /* Email Styling */
+        p.EMAIL {
+            font-weight: bold;
+            font-size: 1.5rem;
+            color: #00e1ffb2;
+            text-decoration-line: overline;
+            margin-top: 10px;
+            animation: slideIn 1s ease-out, fadeIn 2s ease-in-out;
+        }
+
+        p {
+            font-style: italic;
+            font-size: 1rem;
+            color: #fff;
+            margin-top: 20px;
+            padding: 0 20px;
+            line-height: 1.8;
+            animation: fadeIn 3s ease-in-out, shake 1s infinite;
+        }
+
+        /* Button */
+        .btn {
+            padding: 12px 25px;
+            background-color: #FF6347;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            margin-top: 30px;
+            transition: background-color 0.3s, transform 0.3s;
+            animation: fadeIn 2s ease-out, slideIn 1s ease-out;
+        }
+
+        .btn:hover {
+            background-color: #FF4500;
+            transform: scale(1.1);
+        }
+
+        /* Footer Styling */
+        footer {
+            position: fixed;
+            bottom: 10px;
+            width: 100%;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #fff;
+            animation: fadeIn 3s ease-in-out, slideUp 2s ease-in-out;
+        }
+
+        /* Mobile optimization using media queries */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem; /* Adjust heading size for smaller screens */
+            }
+
+            img {
+                width: 200px; /* Smaller image size */
+            }
+
+            .btn {
+                padding: 10px 20px; /* Smaller button size */
+                font-size: 1rem; /* Adjust font size for buttons */
+            }
+
+            footer {
+                font-size: 0.8rem; /* Reduce footer font size */
+            }
+
+            p {
+                font-size: 0.9rem; /* Adjust text size for smaller screens */
+                margin-top: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.5rem; /* Even smaller font size for very small screens */
+            }
+
+            img {
+                width: 180px; /* Further reduce image size for very small screens */
+            }
+
+            .btn {
+                padding: 8px 15px; /* Further reduce button size */
+                font-size: 0.9rem; /* Smaller button font size */
+            }
+
+            footer {
+                font-size: 0.7rem; /* Adjust footer font size */
+            }
+
+            p {
+                font-size: 0.85rem; /* Smaller text size */
+                margin-top: 10px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <div>
+        <h1>WELCOME TO MY CUTE LITTLE WORLD!</h1>
+        <img src="images/lorenzo.png" alt="Cute Image">
+        <p class="EMAIL">EMAIL: <a href="mailto:dhenzel.james2626@gmail.com" style="color: #FF6347;">dhenzel.james2626@gmail.com</a></p>
+        <p>"I love women more than I love myself"</p>
+        <button class="btn" onclick="window.location.href='https://www.youtube.com/watch?v=SSgHXYeoRqA&list=LL&index=2'">click here if u wanna fuck me!!!</button>
+    </div>
+
+    <footer>
+        <p>Created by DJxoxo; 2024</p>
+    </footer>
+
+    <!-- Planets -->
+    <div class="planet planet1"></div>
+    <div class="planet planet2"></div>
+    <div class="planet planet3"></div>
+    <div class="planet planet4"></div>
+    <div class="planet planet5"></div>
+
+</body> 
+</html>
